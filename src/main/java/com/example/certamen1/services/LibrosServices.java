@@ -13,6 +13,7 @@ public class LibrosServices {
     @Autowired
     LibrosRepository librosRepository;
 
+
     public List<Libro> getAll(String search){
         if (search != null && !search.isEmpty()) {
             return librosRepository.findByTituloContainingIgnoreCaseOrAutorContainingIgnoreCase(search, search);
@@ -24,7 +25,7 @@ public class LibrosServices {
         return this.librosRepository.save(libro);
     }
 
-    public List<Libro> findByAutor(String autor){
+    public List<Libro>findByAutor(String autor){
         return librosRepository.findByAutor(autor);
     }
 

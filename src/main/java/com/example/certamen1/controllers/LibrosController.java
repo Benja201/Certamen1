@@ -2,6 +2,7 @@ package com.example.certamen1.controllers;
 
 import com.example.certamen1.entities.Libro;
 import com.example.certamen1.services.LibrosServices;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class LibrosController {
     }
 
     @PostMapping("/crearLibro")
-    public ResponseEntity<Libro> createBook(@RequestBody Libro libro){
+    public ResponseEntity<Libro> createBook(@RequestBody @Valid Libro libro){
         Libro nuevoLibro = librosServices.createBook(libro);
         if(nuevoLibro != null){
             return ResponseEntity.ok(nuevoLibro);
