@@ -21,6 +21,8 @@ import java.io.Serializable;
 public class Libro implements Serializable {
 
     @Id
+    private String id;
+
     @NotBlank(message = "Falta el título")
     private String titulo;
 
